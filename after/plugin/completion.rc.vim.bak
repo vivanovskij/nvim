@@ -1,0 +1,20 @@
+" Use completion-nvim in every buffer
+autocmd BufEnter * lua require'completion'.on_attach()
+
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+let g:completion_confirm_key = ""
+imap <expr> <cr>  pumvisible() ? complete_info()["selected"] != "-1" ?
+                 \ "\<Plug>(completion_confirm_completion)"  : "\<C-e>\<CR>" :  "\<CR>"
+
+
+" let g:completion_trigger_keyword_length = 1 " default = 1
+
+" possible value: 'UltiSnips', 'Neosnippet', 'vim-vsnip', 'snippets.nvim'
+" let g:completion_enable_snippet = 'UltiSnips'
+
