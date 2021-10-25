@@ -11,6 +11,7 @@ runtime ./plug.vim
 let $RTP=split(&runtimepath, ',')[0]
 let $RC="$HOME/.config/nvim/init.vim"
 let $CONF="$HOME/.config/nvim/"
+let $NOTES="$HOME/Documents/notes/"
 
 " устанавливаем path для поиска файлов в проекте
 set path=.,**

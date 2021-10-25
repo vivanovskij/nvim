@@ -39,9 +39,10 @@ let g:which_key_map['v'] = [ '<C-W>v'                           , 'split right']
 let g:which_key_map.f = {
       \ 'name' : '+files' ,
       \ 'i' : [ ':e $RC'                                    , 'open init.vim' ],
-      \ 'p' : [ ':e $CONF/plug.vim'                         , 'open plug.vim' ],
+      \ 'g' : [ ':e $CONF/plug.vim'                         , 'open plug.vim' ],
       \ 'b' : [ ':e $HOME/.bashrc'                          , 'open .bashrc' ],
       \ 'k' : [ ':e $CONF/after/plugin/which-key.rc.vim'    , 'edit keys' ],
+      \ 'p' : [ ':e $NOTES/passwords.txt'                   , 'passwords' ],
       \ }
 
 " s is for search
