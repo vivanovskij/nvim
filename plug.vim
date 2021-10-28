@@ -8,12 +8,11 @@ call plug#begin()
 Plug 'morhetz/gruvbox'
 
 Plug 'jiangmiao/auto-pairs'
-Plug 'airblade/vim-gitgutter'
 Plug 'lyokha/vim-xkbswitch'
 Plug 'easymotion/vim-easymotion'
-" Plug 'mattn/emmet-vim', {'for': 'html'}
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'ap/vim-buftabline'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }

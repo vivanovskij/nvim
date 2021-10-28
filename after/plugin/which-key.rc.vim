@@ -8,7 +8,7 @@ vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
 let g:which_key_map =  {}
 " Define a separator
 let g:which_key_ep = '→'
-set timeoutlen=200
+set timeoutlen=500
 
 
 " Not a fan of floating windows for this
@@ -35,6 +35,37 @@ let g:which_key_map['m'] = [ ':Marks'                           , 'marks']
 let g:which_key_map['s'] = [ ':CocList snippets'                , 'snippets']
 let g:which_key_map['h'] = [ '<C-W>s'                           , 'split below']
 let g:which_key_map['v'] = [ '<C-W>v'                           , 'split right']
+let g:which_key_map['G'] = [ ':Git status'                      , 'git status']
+
+let g:which_key_map.g = {'name' : '+git'}
+nnoremap <silent> <leader>gs :!git status<CR>
+let g:which_key_map.g.s = 'status'
+nnoremap <silent> <leader>ga :!git add<Space>
+let g:which_key_map.g.a = 'add'
+nnoremap <silent> <leader>gc :!git commit -am ""<Left>
+let g:which_key_map.g.c = 'commit -am'
+nnoremap <silent> <leader>gd :!git diff<CR>
+let g:which_key_map.g.d = 'diff'
+nnoremap <silent> <leader>gD :!git rm<Space>
+let g:which_key_map.g.D = 'delete'
+nnoremap <silent> <leader>gl :!git log --oneline<CR>
+let g:which_key_map.g.l = 'log --oneline'
+nnoremap <silent> <leader>gL :!git log<CR>
+let g:which_key_map.g.L = 'log'
+nnoremap <silent> <leader>gm :!git mv<Space>
+let g:which_key_map.g.m = 'move'
+nnoremap <silent> <leader>gp :!git push origin master<CR>
+let g:which_key_map.g.p = 'push'
+
+
+let g:which_key_map['l'] = {
+        \ 'name' : '+lsp',
+        \ 'r' : ['<Plug>(coc-rename)'  , 'rename'],
+        \ 'd' : [':CocList diagnostics'  , 'diagnostic'],
+        \ 'c' : [':CocList commands'  , 'commands'],
+        \ 's' : [':CocCommand snippets.editSnippets'  , 'edit snippets'],
+        \ 'a' : [':call CocActionAsync("codeAction", visualmode())'  , 'action'],
+        \ }
 
 let g:which_key_map.o = {
       \ 'name' : '+open' ,
@@ -44,6 +75,35 @@ let g:which_key_map.o = {
       \ 'k' : [ ':e $CONF/after/plugin/which-key.rc.vim'    , 'edit hot keys' ],
       \ 'c' : [ ':e $CONF/after/plugin/coc.rc.vim'          , 'open coc.rc.vim' ],
       \ 'P' : [ ':e $NOTES/passwords.txt'                   , 'open passwords' ],
+      \ }
+
+" s is for search
+let g:which_key_map.s = {
+      \ 'name' : '+search' ,
+      \ '/' : [':History/'     , 'history'],
+      \ ';' : [':Commands'     , 'commands'],
+      \ 'a' : [':Ag'           , 'text Ag'],
+      \ 'b' : [':BLines'       , 'current bufer'],
+      \ 'B' : [':Buffers'      , 'open buffers'],
+      \ 'c' : [':Commits'      , 'commits'],
+      \ 'C' : [':BCommits'     , 'buffer commits'],
+      \ 'f' : [':Files'        , 'files'],
+      \ 'g' : [':GFiles'       , 'git files'],
+      \ 'G' : [':GFiles?'      , 'modified git files'],
+      \ 'h' : [':History'      , 'file history'],
+      \ 'H' : [':History:'     , 'command history'],
+      \ 'l' : [':Lines'        , 'lines'] ,
+      \ 'm' : [':Marks'        , 'marks'] ,
+      \ 'M' : [':Maps'         , 'normal maps'] ,
+      \ 'p' : [':Helptags'     , 'help tags'] ,
+      \ 'P' : [':Tags'         , 'project tags'],
+      \ 's' : [':CocList snippets'     , 'snippets'],
+      \ 'S' : [':Colors'       , 'color schemes'],
+      \ 't' : [':Rg'           , 'text Rg'],
+      \ 'T' : [':BTags'        , 'buffer tags'],
+      \ 'w' : [':Windows'      , 'search windows'],
+      \ 'y' : [':Filetypes'    , 'file types'],
+      \ 'z' : [':FZF'          , 'FZF'],
       \ }
 
 let g:which_key_map.t = {
@@ -74,44 +134,6 @@ let g:which_key_map['w'] = {
       \ '=' : ['<C-W>='     , 'balance-window']        ,
       \ 's' : ['<C-W>s'     , 'split-window-below']    ,
       \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
-      \ }
-
-let g:which_key_map['l'] = {
-        \ 'name' : '+lsp',
-        \ 'r' : ['<Plug>(coc-rename)'  , 'rename'],
-        \ 'd' : [':CocList diagnostics'  , 'diagnostic'],
-        \ 'c' : [':CocList commands'  , 'commands'],
-        \ 's' : [':CocList -I symbols'  , 'symbols'],
-        \ 'a' : [':call CocActionAsync("codeAction", visualmode())'  , 'action'],
-        \ }
-
-" s is for search
-let g:which_key_map.s = {
-      \ 'name' : '+search' ,
-      \ '/' : [':History/'     , 'history'],
-      \ ';' : [':Commands'     , 'commands'],
-      \ 'a' : [':Ag'           , 'text Ag'],
-      \ 'b' : [':BLines'       , 'current bufer'],
-      \ 'B' : [':Buffers'      , 'open buffers'],
-      \ 'c' : [':Commits'      , 'commits'],
-      \ 'C' : [':BCommits'     , 'buffer commits'],
-      \ 'f' : [':Files'        , 'files'],
-      \ 'g' : [':GFiles'       , 'git files'],
-      \ 'G' : [':GFiles?'      , 'modified git files'],
-      \ 'h' : [':History'      , 'file history'],
-      \ 'H' : [':History:'     , 'command history'],
-      \ 'l' : [':Lines'        , 'lines'] ,
-      \ 'm' : [':Marks'        , 'marks'] ,
-      \ 'M' : [':Maps'         , 'normal maps'] ,
-      \ 'p' : [':Helptags'     , 'help tags'] ,
-      \ 'P' : [':Tags'         , 'project tags'],
-      \ 's' : [':CocList snippets'     , 'snippets'],
-      \ 'S' : [':Colors'       , 'color schemes'],
-      \ 't' : [':Rg'           , 'text Rg'],
-      \ 'T' : [':BTags'        , 'buffer tags'],
-      \ 'w' : [':Windows'      , 'search windows'],
-      \ 'y' : [':Filetypes'    , 'file types'],
-      \ 'z' : [':FZF'          , 'FZF'],
       \ }
 
 " Register which key map

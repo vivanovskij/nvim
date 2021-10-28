@@ -6,11 +6,13 @@
         "json",
         "python"
     ],
+    "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
+    "python.linting.flake8Enabled": false,
     "coc.preferences.extensionUpdateCheck": "daily",
     "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
     "explorer.width": 30,
-    "explorer.icon.enableNerdfont": false,
+    "explorer.icon.enableNerdfont": true,
     "explorer.previewAction.onHover": false,
     "explorer.keyMappings.global": {
         "<cr>": [
