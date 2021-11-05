@@ -45,15 +45,12 @@ set relativenumber
 
 "---------------------------------------------------------------------
 set scrolloff=7
-set tabstop=4
 set shiftwidth=4
-" set smarttab
-"Ставим табы пробелами
+set tabstop=4
+set smarttab
 set expandtab
-" Вырубаем черточки на табах
 set showtabline=1
-" Автоотступ
-" set autoindent
+set smartindent
 " Отключить автокомментарий
 set formatoptions-=cro
 

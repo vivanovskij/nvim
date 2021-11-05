@@ -27,23 +27,24 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 
 
 " Single mappings
-let g:which_key_map['d'] = [ ':bd'                              , 'delete buffer' ]
-let g:which_key_map['/'] = [ ':Commentary'                      , 'comment' ]
-let g:which_key_map['p'] = [ ':History'                         , 'previous files']
-let g:which_key_map['e'] = [ ':CocCommand explorer'             , 'explorer']
-let g:which_key_map['m'] = [ ':Marks'                           , 'marks']
-let g:which_key_map['s'] = [ ':CocList snippets'                , 'snippets']
-let g:which_key_map['h'] = [ '<C-W>s'                           , 'split below']
-let g:which_key_map['v'] = [ '<C-W>v'                           , 'split right']
-let g:which_key_map['G'] = [ ':Git status'                      , 'git status']
+let g:which_key_map['/'] = [ ':Commentary'     , 'comment' ]
+let g:which_key_map['d'] = [ ':bd'             , 'delete buffer' ]
+let g:which_key_map['e'] = [ ':CocCommand explorer' , 'explorer']
+let g:which_key_map['m'] = [ ':Marks'               , 'marks']
+let g:which_key_map['p'] = [ ':History'        , 'previous files']
+let g:which_key_map['r'] = [':FloatermNew ranger' , 'ranger']
+let g:which_key_map['s'] = [ ':CocList snippets' , 'snippets']
+let g:which_key_map['h'] = [ '<C-W>s'          , 'split below']
+let g:which_key_map['v'] = [ '<C-W>v'          , 'split right']
 
+" Git
 let g:which_key_map.g = {'name' : '+git'}
 nnoremap <silent> <leader>gs :!git status<CR>
 let g:which_key_map.g.s = 'status'
 nnoremap <silent> <leader>ga :!git add<Space>
 let g:which_key_map.g.a = 'add'
 nnoremap <silent> <leader>gc :!git commit -am ""<Left>
-let g:which_key_map.g.c = 'commit -am'
+let g:which_key_map.g.c = 'commit'
 nnoremap <silent> <leader>gd :!git diff<CR>
 let g:which_key_map.g.d = 'diff'
 nnoremap <silent> <leader>gD :!git rm<Space>
@@ -69,12 +70,14 @@ let g:which_key_map['l'] = {
 
 let g:which_key_map.o = {
       \ 'name' : '+open' ,
-      \ 'i' : [ ':e $RC'                                    , 'open init.vim' ],
-      \ 'p' : [ ':e $CONF/plug.vim'                         , 'open plug.vim' ],
-      \ 'b' : [ ':e $HOME/.bashrc'                          , 'open .bashrc' ],
-      \ 'k' : [ ':e $CONF/after/plugin/which-key.rc.vim'    , 'edit hot keys' ],
-      \ 'c' : [ ':e $CONF/after/plugin/coc.rc.vim'          , 'open coc.rc.vim' ],
-      \ 'P' : [ ':e $NOTES/passwords.txt'                   , 'open passwords' ],
+      \ 'a' : [ ':e ~/.config/alacritty/alacritty.yml'    , 'open alacritty.yaml' ],
+      \ 'b' : [ ':e $HOME/.bashrc'                        , 'open .bashrc' ],
+      \ 'C' : [ ':e $CONF/after/plugin/coc.rc.vim'        , 'open coc.rc.vim' ],
+      \ 'c' : [ ':e $CONF/coc-settings.json'                       , 'open coc-settings.json' ],
+      \ 'i' : [ ':e $RC'                                  , 'open init.vim' ],
+      \ 'k' : [ ':e $CONF/after/plugin/which-key.rc.vim'  , 'edit hot keys' ],
+      \ 'p' : [ ':e $CONF/plug.vim'                       , 'open plug.vim' ],
+      \ 'P' : [ ':e $NOTES/passwords.txt'                 , 'open passwords' ],
       \ }
 
 " s is for search
